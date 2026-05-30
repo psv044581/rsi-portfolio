@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSI Portfolio</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0d0f14;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 14px;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .updated {
+      color: #666;
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
+    .group-block {
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .group-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .group-desc {
+      color: #888;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      text-align: left;
+      color: #888;
+      font-weight: 500;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 6px 10px;
+      border-bottom: 1px solid #1e2230;
+    }
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #1a1d27;
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    td.coin {
+      font-weight: 700;
+      color: #fff;
+      font-size: 15px;
+      width: 80px;
+    }
+    td.denom {
+      color: #aaa;
+      width: 110px;
+    }
+    td.rsi {
+      font-weight: 600;
+      width: 100px;
+    }
+    td.overbought { color: #ff4444; }
+    td.oversold   { color: #33bb55; }
+    td.xval {
+      font-weight: 600;
+      width: 140px;
+    }
+    td.note {
+      color: #888;
+      font-size: 12px;
+    }
+    .legend {
+      display: flex;
+      gap: 20px;
+      font-size: 11px;
+      color: #666;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .legend span { display: flex; align-items: center; gap: 5px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+  </style>
+</head>
+<body>
+  <h1>RSI Portfolio Monitor</h1>
+  <div class="updated">Обновлено: 30.05.2026 15:22 (МНЕ)</div>
+  
+    <div class="group-block" style="border-left:4px solid #ff4444;background:rgba(255,68,68,0.08)">
+      <div class="group-title" style="color:#ff4444">🔴 Группа 1 — Критический риск: ПРОДАТЬ</div>
+      <div class="group-desc">просадка 87–99% / проекты мертвы или делистятся</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Монета</th>
+            <th>→ Знаменатель</th>
+            <th>RSI (1D)</th>
+            <th>Иксов до безубытка</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="coin">ELIZAOS</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">57.9</td>
+          <td class="xval" style="color:#ff4444">x95.38</td>
+          <td class="note">под иском о мошенничестве</td>
+        </tr>
+        <tr>
+          <td class="coin">FLOW</td>
+          <td class="denom">HFT</td>
+          <td class="rsi">52.8</td>
+          <td class="xval" style="color:#ff4444">x19.96</td>
+          <td class="note">делистинг в Корее</td>
+        </tr>
+        <tr>
+          <td class="coin">OBT</td>
+          <td class="denom">HFT</td>
+          <td class="rsi">47.1</td>
+          <td class="xval" style="color:#ff4444">x13.76</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">GOAT</td>
+          <td class="denom">HFT</td>
+          <td class="rsi">53.3</td>
+          <td class="xval" style="color:#ff8800">x7.88</td>
+          <td class="note"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="group-block" style="border-left:4px solid #ff8800;background:rgba(255,136,0,0.08)">
+      <div class="group-title" style="color:#ff8800">🟠 Группа 2 — Очень высокий риск: минимизировать</div>
+      <div class="group-desc">держать без усреднения</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Монета</th>
+            <th>→ Знаменатель</th>
+            <th>RSI (1D)</th>
+            <th>Иксов до безубытка</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="coin">IO</td>
+          <td class="denom">JUP</td>
+          <td class="rsi overbought">74.6 ▲</td>
+          <td class="xval" style="color:#ff4444">x11.27</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">HFT</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">47.2</td>
+          <td class="xval" style="color:#ff4444">x10.69</td>
+          <td class="note">мониторинг-тег Binance 22 мая 2026</td>
+        </tr>
+        <tr>
+          <td class="coin">APT</td>
+          <td class="denom">LDO</td>
+          <td class="rsi overbought">70.0 ▲</td>
+          <td class="xval" style="color:#ff8800">x9.81</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">XCH</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">48.9</td>
+          <td class="xval" style="color:#ff8800">x8.33</td>
+          <td class="note">выходить</td>
+        </tr>
+        <tr>
+          <td class="coin">ZK</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">52.7</td>
+          <td class="xval" style="color:#ff8800">x7.76</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">ARB</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">52.1</td>
+          <td class="xval" style="color:#ff8800">x7.01</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">PYTH</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">56.5</td>
+          <td class="xval" style="color:#ff8800">x6.83</td>
+          <td class="note"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="group-block" style="border-left:4px solid #ccaa00;background:rgba(204,170,0,0.08)">
+      <div class="group-title" style="color:#ccaa00">🟡 Группа 3 — Высокий риск: держать/ждать</div>
+      <div class="group-desc">высокий риск — реальные проекты</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Монета</th>
+            <th>→ Знаменатель</th>
+            <th>RSI (1D)</th>
+            <th>Иксов до безубытка</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="coin">IMX</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">64.6</td>
+          <td class="xval" style="color:#ff8800">x6.2</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">ROSE</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">52.2</td>
+          <td class="xval" style="color:#ff8800">x5.5</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">GRT</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">65.1</td>
+          <td class="xval" style="color:#ccaa00">x4.89</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">WLD</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">61.7</td>
+          <td class="xval" style="color:#ccaa00">x4.66</td>
+          <td class="note">24 июля 2026: разлок -43% (5.1M→2.9M WLD/день)</td>
+        </tr>
+        <tr>
+          <td class="coin">TIA</td>
+          <td class="denom">ROSE</td>
+          <td class="rsi">63.6</td>
+          <td class="xval" style="color:#ff4444">x11.29</td>
+          <td class="note">реальный проект без монетизации</td>
+        </tr>
+        <tr>
+          <td class="coin">JUP</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">53.0</td>
+          <td class="xval" style="color:#ccaa00">x4.15</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">FIL</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">61.4</td>
+          <td class="xval" style="color:#ccaa00">x3.7</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">APE</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">61.4</td>
+          <td class="xval" style="color:#ccaa00">x3.3</td>
+          <td class="note">выходить — NFT-нарратив слабый</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="group-block" style="border-left:4px solid #ccaa00;background:rgba(204,170,0,0.06)">
+      <div class="group-title" style="color:#ccaa00">🟡 Группа 4 — Умеренно-высокий риск: докупать избранные</div>
+      <div class="group-desc">избранные на докупку</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Монета</th>
+            <th>→ Знаменатель</th>
+            <th>RSI (1D)</th>
+            <th>Иксов до безубытка</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="coin">ICP</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">62.8</td>
+          <td class="xval" style="color:#ccaa00">x3.26</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">ONDO</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">52.8</td>
+          <td class="xval" style="color:#ccaa00">x3.15</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">COMP</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">47.8</td>
+          <td class="xval" style="color:#ccaa00">x3.0</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">INJ</td>
+          <td class="denom">LDO</td>
+          <td class="rsi overbought">87.4 ▲</td>
+          <td class="xval" style="color:#ccaa00">x2.63</td>
+          <td class="note">дефляция + реальный объём</td>
+        </tr>
+        <tr>
+          <td class="coin">TON</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">53.7</td>
+          <td class="xval" style="color:#ccaa00">x2.47</td>
+          <td class="note">900M Telegram-пользователей</td>
+        </tr>
+        <tr>
+          <td class="coin">CFX</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">52.1</td>
+          <td class="xval" style="color:#ccaa00">x2.36</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="coin">RENDER</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">66.5</td>
+          <td class="xval" style="color:#ccaa00">x2.31</td>
+          <td class="note">AI-GPU / +60K GPU в сети</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="group-block" style="border-left:4px solid #33bb55;background:rgba(51,187,85,0.08)">
+      <div class="group-title" style="color:#33bb55">🟢 Группа 5 — Умеренный риск: приоритет</div>
+      <div class="group-desc">ближайшие к безубытку / сильные фундаменталы</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Монета</th>
+            <th>→ Знаменатель</th>
+            <th>RSI (1D)</th>
+            <th>Иксов до безубытка</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="coin">LDO</td>
+          <td class="denom">NEAR</td>
+          <td class="rsi oversold">21.8 ▼</td>
+          <td class="xval" style="color:#33bb55">x1.62</td>
+          <td class="note">рассмотреть докупку при просадке</td>
+        </tr>
+        <tr>
+          <td class="coin">NEAR</td>
+          <td class="denom">LDO</td>
+          <td class="rsi overbought">79.2 ▲</td>
+          <td class="xval" style="color:#33bb55">x1.39</td>
+          <td class="note">рассмотреть докупку при просадке</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  <div class="legend">
+    <span><span class="dot" style="background:#ff4444"></span> RSI ≥ 70 — перекуплен (сигнал к переливке)</span>
+    <span><span class="dot" style="background:#33bb55"></span> RSI ≤ 30 — перепродан</span>
+    <span>Знаменатель — монета с наивысшим RSI пары (числитель / знаменатель), только из равных или лучших групп</span>
+  </div>
+</body>
+</html>
