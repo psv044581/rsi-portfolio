@@ -54,8 +54,9 @@
       padding: 6px 10px;
       border-bottom: 1px solid #1e2230;
     }
+    th.rsi-w-head { color: #6699cc; }
     td {
-      padding: 8px 10px;
+      padding: 6px 10px;
       border-bottom: 1px solid #1a1d27;
       vertical-align: middle;
     }
@@ -64,25 +65,33 @@
       font-weight: 700;
       color: #fff;
       font-size: 15px;
-      width: 80px;
+      width: 75px;
+      vertical-align: middle;
+    }
+    td.xval {
+      font-weight: 600;
+      width: 65px;
+      vertical-align: middle;
     }
     td.denom {
       color: #aaa;
-      width: 110px;
+      width: 100px;
     }
     td.rsi {
       font-weight: 600;
-      width: 100px;
+      width: 85px;
     }
-    td.overbought { color: #ff4444; }
-    td.oversold   { color: #33bb55; }
-    td.xval {
+    td.rsi-w {
       font-weight: 600;
-      width: 140px;
+      width: 85px;
+      color: #6699cc;
     }
+    td.overbought { color: #ff4444 !important; }
+    td.oversold   { color: #33bb55 !important; }
     td.note {
       color: #888;
       font-size: 12px;
+      vertical-align: middle;
     }
     .legend {
       display: flex;
@@ -98,7 +107,7 @@
 </head>
 <body>
   <h1>RSI Portfolio Monitor</h1>
-  <div class="updated">🕐 Сгенерировано: 30.05.2026 15:47:34 (МНЕ)</div>
+  <div class="updated">🕐 Сгенерировано: 30.05.2026 16:00:51 (МНЕ)</div>
   
     <div class="group-block" style="border-left:4px solid #ff4444;background:rgba(255,68,68,0.08)">
       <div class="group-title" style="color:#ff4444">🔴 Группа 1 — Критический риск: ПРОДАТЬ</div>
@@ -107,40 +116,85 @@
         <thead>
           <tr>
             <th>Монета</th>
+            <th>Иксов</th>
             <th>→ Знаменатель</th>
-            <th>RSI (1D)</th>
-            <th>Иксов до безубытка</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
             <th>Примечание</th>
           </tr>
         </thead>
         <tbody>
         <tr>
-          <td class="coin">ELIZAOS</td>
+          <td class="coin" rowspan="3">ELIZAOS</td>
+          <td rowspan="3" class="xval" style="color:#ff4444">x94.77</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">58.5</td>
+          <td class="rsi rsi-w">36.9</td>
+          <td class="note" rowspan="3">под иском о мошенничестве</td>
+        </tr>
+        <tr>
           <td class="denom">LDO</td>
-          <td class="rsi">58.9</td>
-          <td class="xval" style="color:#ff4444">x95.1</td>
-          <td class="note">под иском о мошенничестве</td>
+          <td class="rsi">58.2</td>
+          <td class="rsi rsi-w oversold">25.7 ▼</td>
         </tr>
         <tr>
-          <td class="coin">FLOW</td>
-          <td class="denom">HFT</td>
-          <td class="rsi">53.6</td>
-          <td class="xval" style="color:#ff4444">x20.0</td>
-          <td class="note">делистинг в Корее</td>
+          <td class="denom">ARB</td>
+          <td class="rsi">57.4</td>
+          <td class="rsi rsi-w oversold">28.1 ▼</td>
         </tr>
         <tr>
-          <td class="coin">OBT</td>
+          <td class="coin" rowspan="3">FLOW</td>
+          <td rowspan="3" class="xval" style="color:#ff4444">x19.94</td>
           <td class="denom">HFT</td>
-          <td class="rsi">47.7</td>
-          <td class="xval" style="color:#ff4444">x13.64</td>
-          <td class="note"></td>
+          <td class="rsi">52.6</td>
+          <td class="rsi rsi-w">44.0</td>
+          <td class="note" rowspan="3">делистинг в Корее</td>
         </tr>
         <tr>
-          <td class="coin">GOAT</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">50.6</td>
+          <td class="rsi rsi-w">33.8</td>
+        </tr>
+        <tr>
+          <td class="denom">XCH</td>
+          <td class="rsi">49.4</td>
+          <td class="rsi rsi-w">41.0</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">OBT</td>
+          <td rowspan="3" class="xval" style="color:#ff4444">x13.58</td>
           <td class="denom">HFT</td>
-          <td class="rsi">53.3</td>
-          <td class="xval" style="color:#ff8800">x7.93</td>
-          <td class="note"></td>
+          <td class="rsi">47.3</td>
+          <td class="rsi rsi-w">39.3</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">XCH</td>
+          <td class="rsi">45.9</td>
+          <td class="rsi rsi-w">35.7</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">44.9</td>
+          <td class="rsi rsi-w oversold">29.7 ▼</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">GOAT</td>
+          <td rowspan="3" class="xval" style="color:#ff8800">x7.9</td>
+          <td class="denom">HFT</td>
+          <td class="rsi">53.0</td>
+          <td class="rsi rsi-w">55.1</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">51.2</td>
+          <td class="rsi rsi-w">41.7</td>
+        </tr>
+        <tr>
+          <td class="denom">XCH</td>
+          <td class="rsi">50.0</td>
+          <td class="rsi rsi-w">48.1</td>
         </tr>
         </tbody>
       </table>
@@ -152,61 +206,139 @@
         <thead>
           <tr>
             <th>Монета</th>
+            <th>Иксов</th>
             <th>→ Знаменатель</th>
-            <th>RSI (1D)</th>
-            <th>Иксов до безубытка</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
             <th>Примечание</th>
           </tr>
         </thead>
         <tbody>
         <tr>
-          <td class="coin">IO</td>
+          <td class="coin" rowspan="3">IO</td>
+          <td rowspan="3" class="xval" style="color:#ff4444">x11.05</td>
           <td class="denom">JUP</td>
-          <td class="rsi overbought">76.0 ▲</td>
-          <td class="xval" style="color:#ff4444">x11.17</td>
-          <td class="note"></td>
+          <td class="rsi overbought">75.9 ▲</td>
+          <td class="rsi rsi-w">58.8</td>
+          <td class="note" rowspan="3"></td>
         </tr>
         <tr>
-          <td class="coin">HFT</td>
-          <td class="denom">COMP</td>
-          <td class="rsi">46.0</td>
-          <td class="xval" style="color:#ff4444">x10.76</td>
-          <td class="note">мониторинг-тег Binance 22 мая 2026</td>
-        </tr>
-        <tr>
-          <td class="coin">APT</td>
           <td class="denom">LDO</td>
-          <td class="rsi overbought">70.0 ▲</td>
-          <td class="xval" style="color:#ff8800">x9.86</td>
-          <td class="note"></td>
+          <td class="rsi overbought">75.6 ▲</td>
+          <td class="rsi rsi-w">65.9</td>
         </tr>
         <tr>
-          <td class="coin">XCH</td>
+          <td class="denom">ROSE</td>
+          <td class="rsi overbought">75.1 ▲</td>
+          <td class="rsi rsi-w">66.8</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">HFT</td>
+          <td rowspan="3" class="xval" style="color:#ff4444">x10.77</td>
           <td class="denom">COMP</td>
-          <td class="rsi">48.8</td>
-          <td class="xval" style="color:#ff8800">x8.36</td>
-          <td class="note">выходить</td>
+          <td class="rsi">47.5</td>
+          <td class="rsi rsi-w">41.3</td>
+          <td class="note" rowspan="3">мониторинг-тег Binance 22 мая 2026</td>
         </tr>
         <tr>
-          <td class="coin">ZK</td>
-          <td class="denom">COMP</td>
-          <td class="rsi">52.0</td>
-          <td class="xval" style="color:#ff8800">x7.77</td>
-          <td class="note"></td>
+          <td class="denom">CFX</td>
+          <td class="rsi">45.6</td>
+          <td class="rsi rsi-w">36.5</td>
         </tr>
         <tr>
-          <td class="coin">ARB</td>
-          <td class="denom">COMP</td>
-          <td class="rsi">51.4</td>
-          <td class="xval" style="color:#ff8800">x7.05</td>
-          <td class="note"></td>
-        </tr>
-        <tr>
-          <td class="coin">PYTH</td>
           <td class="denom">LDO</td>
-          <td class="rsi">55.6</td>
-          <td class="xval" style="color:#ff8800">x6.88</td>
-          <td class="note"></td>
+          <td class="rsi">45.3</td>
+          <td class="rsi rsi-w">40.2</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">APT</td>
+          <td rowspan="3" class="xval" style="color:#ff8800">x9.82</td>
+          <td class="denom">LDO</td>
+          <td class="rsi overbought">70.2 ▲</td>
+          <td class="rsi rsi-w">46.9</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">63.8</td>
+          <td class="rsi rsi-w">47.5</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">60.4</td>
+          <td class="rsi rsi-w">40.4</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">XCH</td>
+          <td rowspan="3" class="xval" style="color:#ff8800">x8.4</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">49.0</td>
+          <td class="rsi rsi-w">44.2</td>
+          <td class="note" rowspan="3">выходить</td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">48.0</td>
+          <td class="rsi rsi-w">44.5</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">47.7</td>
+          <td class="rsi rsi-w">40.6</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">ZK</td>
+          <td rowspan="3" class="xval" style="color:#ff8800">x7.77</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">52.7</td>
+          <td class="rsi rsi-w">43.0</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">51.2</td>
+          <td class="rsi rsi-w">43.5</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">50.6</td>
+          <td class="rsi rsi-w">40.1</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">ARB</td>
+          <td rowspan="3" class="xval" style="color:#ff8800">x7.03</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">52.5</td>
+          <td class="rsi rsi-w">47.5</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">50.9</td>
+          <td class="rsi rsi-w">48.9</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">50.2</td>
+          <td class="rsi rsi-w">43.2</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">PYTH</td>
+          <td rowspan="3" class="xval" style="color:#ff8800">x6.86</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">56.0</td>
+          <td class="rsi rsi-w">48.9</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">55.5</td>
+          <td class="rsi rsi-w">50.1</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">54.1</td>
+          <td class="rsi rsi-w">45.4</td>
         </tr>
         </tbody>
       </table>
@@ -218,68 +350,157 @@
         <thead>
           <tr>
             <th>Монета</th>
+            <th>Иксов</th>
             <th>→ Знаменатель</th>
-            <th>RSI (1D)</th>
-            <th>Иксов до безубытка</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
             <th>Примечание</th>
           </tr>
         </thead>
         <tbody>
         <tr>
-          <td class="coin">IMX</td>
+          <td class="coin" rowspan="3">IMX</td>
+          <td rowspan="3" class="xval" style="color:#ff8800">x6.19</td>
           <td class="denom">LDO</td>
-          <td class="rsi">65.3</td>
-          <td class="xval" style="color:#ff8800">x6.2</td>
-          <td class="note"></td>
+          <td class="rsi">65.1</td>
+          <td class="rsi rsi-w">54.0</td>
+          <td class="note" rowspan="3"></td>
         </tr>
         <tr>
-          <td class="coin">ROSE</td>
-          <td class="denom">COMP</td>
-          <td class="rsi">51.8</td>
-          <td class="xval" style="color:#ff8800">x5.52</td>
-          <td class="note"></td>
-        </tr>
-        <tr>
-          <td class="coin">GRT</td>
-          <td class="denom">LDO</td>
-          <td class="rsi">66.2</td>
-          <td class="xval" style="color:#ccaa00">x4.92</td>
-          <td class="note"></td>
-        </tr>
-        <tr>
-          <td class="coin">WLD</td>
-          <td class="denom">LDO</td>
-          <td class="rsi">62.8</td>
-          <td class="xval" style="color:#ccaa00">x4.63</td>
-          <td class="note">24 июля 2026: разлок -43% (5.1M→2.9M WLD/день)</td>
-        </tr>
-        <tr>
-          <td class="coin">TIA</td>
-          <td class="denom">LDO</td>
+          <td class="denom">ROSE</td>
           <td class="rsi">63.1</td>
-          <td class="xval" style="color:#ff4444">x11.38</td>
-          <td class="note">реальный проект без монетизации</td>
+          <td class="rsi rsi-w">53.6</td>
         </tr>
         <tr>
-          <td class="coin">JUP</td>
-          <td class="denom">LDO</td>
-          <td class="rsi">52.7</td>
-          <td class="xval" style="color:#ccaa00">x4.16</td>
-          <td class="note"></td>
+          <td class="denom">CFX</td>
+          <td class="rsi">61.7</td>
+          <td class="rsi rsi-w">46.9</td>
         </tr>
         <tr>
-          <td class="coin">FIL</td>
-          <td class="denom">LDO</td>
-          <td class="rsi">62.0</td>
-          <td class="xval" style="color:#ccaa00">x3.71</td>
-          <td class="note"></td>
+          <td class="coin" rowspan="3">ROSE</td>
+          <td rowspan="3" class="xval" style="color:#ff8800">x5.51</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">52.5</td>
+          <td class="rsi rsi-w">47.3</td>
+          <td class="note" rowspan="3"></td>
         </tr>
         <tr>
-          <td class="coin">APE</td>
           <td class="denom">LDO</td>
-          <td class="rsi">62.2</td>
-          <td class="xval" style="color:#ccaa00">x3.31</td>
-          <td class="note">выходить — NFT-нарратив слабый</td>
+          <td class="rsi">51.7</td>
+          <td class="rsi rsi-w">48.1</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">51.0</td>
+          <td class="rsi rsi-w">44.4</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">GRT</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x4.87</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">67.4</td>
+          <td class="rsi rsi-w">54.0</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">64.6</td>
+          <td class="rsi rsi-w">54.6</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">61.6</td>
+          <td class="rsi rsi-w">51.7</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">WLD</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x4.44</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">64.7</td>
+          <td class="rsi rsi-w">53.0</td>
+          <td class="note" rowspan="3">24 июля 2026: разлок -43% (5.1M→2.9M WLD/день)</td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">64.5</td>
+          <td class="rsi rsi-w">54.0</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">63.5</td>
+          <td class="rsi rsi-w">51.5</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">TIA</td>
+          <td rowspan="3" class="xval" style="color:#ff4444">x11.34</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">63.3</td>
+          <td class="rsi rsi-w">58.2</td>
+          <td class="note" rowspan="3">реальный проект без монетизации</td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">62.7</td>
+          <td class="rsi rsi-w">58.6</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">60.5</td>
+          <td class="rsi rsi-w">50.5</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">JUP</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x4.16</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">53.0</td>
+          <td class="rsi rsi-w">54.6</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">52.5</td>
+          <td class="rsi rsi-w">56.8</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">51.7</td>
+          <td class="rsi rsi-w">52.0</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">FIL</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x3.68</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">62.6</td>
+          <td class="rsi rsi-w">56.8</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">61.7</td>
+          <td class="rsi rsi-w">57.7</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">60.0</td>
+          <td class="rsi rsi-w">54.3</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">APE</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x3.3</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">61.5</td>
+          <td class="rsi rsi-w">54.6</td>
+          <td class="note" rowspan="3">выходить — NFT-нарратив слабый</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">60.3</td>
+          <td class="rsi rsi-w">53.0</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">59.8</td>
+          <td class="rsi rsi-w">46.7</td>
         </tr>
         </tbody>
       </table>
@@ -291,61 +512,139 @@
         <thead>
           <tr>
             <th>Монета</th>
+            <th>Иксов</th>
             <th>→ Знаменатель</th>
-            <th>RSI (1D)</th>
-            <th>Иксов до безубытка</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
             <th>Примечание</th>
           </tr>
         </thead>
         <tbody>
         <tr>
-          <td class="coin">ICP</td>
+          <td class="coin" rowspan="3">ICP</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x3.26</td>
           <td class="denom">LDO</td>
-          <td class="rsi">62.9</td>
-          <td class="xval" style="color:#ccaa00">x3.29</td>
-          <td class="note"></td>
+          <td class="rsi">63.1</td>
+          <td class="rsi rsi-w">57.9</td>
+          <td class="note" rowspan="3"></td>
         </tr>
         <tr>
-          <td class="coin">ONDO</td>
           <td class="denom">COMP</td>
+          <td class="rsi">60.1</td>
+          <td class="rsi rsi-w">55.7</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">59.5</td>
+          <td class="rsi rsi-w">53.4</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">ONDO</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x3.16</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">52.8</td>
+          <td class="rsi rsi-w">56.4</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">51.9</td>
+          <td class="rsi rsi-w">58.6</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">51.1</td>
+          <td class="rsi rsi-w">53.5</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">COMP</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x3.0</td>
+          <td class="denom">CFX</td>
+          <td class="rsi">48.1</td>
+          <td class="rsi rsi-w">45.2</td>
+          <td class="note" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">47.7</td>
+          <td class="rsi rsi-w">50.7</td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">44.6</td>
+          <td class="rsi rsi-w">43.5</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">INJ</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x2.64</td>
+          <td class="denom">LDO</td>
+          <td class="rsi overbought">87.6 ▲</td>
+          <td class="rsi rsi-w overbought">81.8 ▲</td>
+          <td class="note" rowspan="3">дефляция + реальный объём</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi overbought">84.4 ▲</td>
+          <td class="rsi rsi-w overbought">74.8 ▲</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi overbought">84.4 ▲</td>
+          <td class="rsi rsi-w overbought">76.8 ▲</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">TON</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x2.47</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">54.2</td>
+          <td class="rsi rsi-w">60.0</td>
+          <td class="note" rowspan="3">900M Telegram-пользователей</td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">53.3</td>
+          <td class="rsi rsi-w">60.3</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
           <td class="rsi">52.3</td>
-          <td class="xval" style="color:#ccaa00">x3.17</td>
-          <td class="note"></td>
+          <td class="rsi rsi-w">57.6</td>
         </tr>
         <tr>
-          <td class="coin">COMP</td>
-          <td class="denom">LDO</td>
-          <td class="rsi">48.6</td>
-          <td class="xval" style="color:#ccaa00">x3.0</td>
-          <td class="note"></td>
-        </tr>
-        <tr>
-          <td class="coin">INJ</td>
-          <td class="denom">LDO</td>
-          <td class="rsi overbought">87.4 ▲</td>
-          <td class="xval" style="color:#ccaa00">x2.66</td>
-          <td class="note">дефляция + реальный объём</td>
-        </tr>
-        <tr>
-          <td class="coin">TON</td>
+          <td class="coin" rowspan="3">CFX</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x2.38</td>
           <td class="denom">COMP</td>
-          <td class="rsi">53.4</td>
-          <td class="xval" style="color:#ccaa00">x2.49</td>
-          <td class="note">900M Telegram-пользователей</td>
+          <td class="rsi">51.6</td>
+          <td class="rsi rsi-w">52.7</td>
+          <td class="note" rowspan="3"></td>
         </tr>
         <tr>
-          <td class="coin">CFX</td>
-          <td class="denom">COMP</td>
-          <td class="rsi">51.3</td>
-          <td class="xval" style="color:#ccaa00">x2.38</td>
-          <td class="note"></td>
-        </tr>
-        <tr>
-          <td class="coin">RENDER</td>
           <td class="denom">LDO</td>
-          <td class="rsi">66.1</td>
-          <td class="xval" style="color:#ccaa00">x2.34</td>
-          <td class="note">AI-GPU / +60K GPU в сети</td>
+          <td class="rsi">50.2</td>
+          <td class="rsi rsi-w">53.6</td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">46.7</td>
+          <td class="rsi rsi-w">45.1</td>
+        </tr>
+        <tr>
+          <td class="coin" rowspan="3">RENDER</td>
+          <td rowspan="3" class="xval" style="color:#ccaa00">x2.31</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">67.0</td>
+          <td class="rsi rsi-w">64.2</td>
+          <td class="note" rowspan="3">AI-GPU / +60K GPU в сети</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">65.9</td>
+          <td class="rsi rsi-w">61.6</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">61.7</td>
+          <td class="rsi rsi-w">61.2</td>
         </tr>
         </tbody>
       </table>
@@ -357,34 +656,38 @@
         <thead>
           <tr>
             <th>Монета</th>
+            <th>Иксов</th>
             <th>→ Знаменатель</th>
-            <th>RSI (1D)</th>
-            <th>Иксов до безубытка</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
             <th>Примечание</th>
           </tr>
         </thead>
         <tbody>
         <tr>
-          <td class="coin">LDO</td>
+          <td class="coin" rowspan="1">LDO</td>
+          <td rowspan="1" class="xval" style="color:#33bb55">x1.62</td>
           <td class="denom">NEAR</td>
           <td class="rsi oversold">21.8 ▼</td>
-          <td class="xval" style="color:#33bb55">x1.62</td>
-          <td class="note">рассмотреть докупку при просадке</td>
+          <td class="rsi rsi-w">30.9</td>
+          <td class="note" rowspan="1">рассмотреть докупку при просадке</td>
         </tr>
         <tr>
-          <td class="coin">NEAR</td>
+          <td class="coin" rowspan="1">NEAR</td>
+          <td rowspan="1" class="xval" style="color:#33bb55">x1.38</td>
           <td class="denom">LDO</td>
           <td class="rsi overbought">79.2 ▲</td>
-          <td class="xval" style="color:#33bb55">x1.39</td>
-          <td class="note">рассмотреть докупку при просадке</td>
+          <td class="rsi rsi-w overbought">78.2 ▲</td>
+          <td class="note" rowspan="1">рассмотреть докупку при просадке</td>
         </tr>
         </tbody>
       </table>
     </div>
   <div class="legend">
-    <span><span class="dot" style="background:#ff4444"></span> RSI ≥ 70 — перекуплен (сигнал к переливке)</span>
+    <span><span class="dot" style="background:#ff4444"></span> RSI ≥ 70 — перекуплен</span>
     <span><span class="dot" style="background:#33bb55"></span> RSI ≤ 30 — перепродан</span>
-    <span>Знаменатель — монета с наивысшим RSI пары (числитель / знаменатель), только из равных или лучших групп</span>
+    <span><span class="dot" style="background:#6699cc"></span> RSI 1W — синим</span>
+    <span>Топ-3 знаменателя по убыванию RSI 1D</span>
   </div>
 </body>
 </html>
